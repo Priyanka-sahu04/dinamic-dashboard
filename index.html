@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Authentication</title>
+  <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js"></script>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <div class="container">
+    <h1>User Authentication</h1>
+    
+    <!-- Sign Up Section -->
+    <div id="signup-section" class="auth-form">
+      <h2>Sign Up</h2>
+      <input type="email" id="signup-email" placeholder="Email" />
+      <input type="password" id="signup-password" placeholder="Password" />
+      <button id="signup-btn">Sign Up</button>
+      <div class="login-message">
+        <p>Already have an account? <a href="#" id="show-login">Login here</a></p>
+      </div>
+    </div>
+    
+    <!-- Login Section -->
+    <div id="login-section" class="auth-form">
+      <h2>Login</h2>
+      <input type="email" id="login-email" placeholder="Email" />
+      <input type="password" id="login-password" placeholder="Password" />
+      <button id="login-btn">Login</button>
+      <div class="login-message">
+        <p>Don't have an account? <a href="#" id="show-signup">Sign Up here</a></p>
+      </div>
+    </div>
+    
+    <!-- Logout Button -->
+    <button id="logout-btn" style="display:none;">Logout</button>
+  </div>
+
+  <script type="module" src="auth.js"></script>
+  <script>
+    // JavaScript to toggle between sign up and login forms
+    document.getElementById('show-login').addEventListener('click', function() {
+      document.getElementById('signup-section').style.display = 'none';
+      document.getElementById('login-section').style.display = 'block';
+    });
+
+    document.getElementById('show-signup').addEventListener('click', function() {
+      document.getElementById('login-section').style.display = 'none';
+      document.getElementById('signup-section').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
